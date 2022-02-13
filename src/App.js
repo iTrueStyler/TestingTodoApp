@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MainPage from "./pages/MainPage";
+import WorkPage from "./pages/WorkPage";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchTodos } from "./redux/actions/todos";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/todos" element={<WorkPage />} />
+        </Routes>
+      </>
     </div>
   );
 }
