@@ -2,9 +2,8 @@ const initialState = [];
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-
     case "SET_TODOS":
-     let slicedState = [...action.payload].slice(0,20);
+      let slicedState = [...action.payload].slice(0, 20);
       return slicedState;
 
     case "CLEAN_TODO":

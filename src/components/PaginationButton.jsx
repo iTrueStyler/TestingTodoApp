@@ -1,27 +1,22 @@
-import React from 'react'
+import React from "react";
 import { useDispatch } from "react-redux";
-import { fetchTodos,paginateTodo } from "../redux/actions/todos";
+import { fetchTodos, paginateTodo } from "../redux/actions/todos";
 
-function PaginationButton({count}) {
+function PaginationButton({ count }) {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
-
-function clickAddHandler(count) {
-   
-   dispatch(fetchTodos(count))
-    
+  function clickAddHandler(count) {
+    dispatch(fetchTodos(count));
   }
 
-
-   return (
-      
-      <button className='pagination__button button' onClick={()=>clickAddHandler(count)}>
-
-         {count}
-      
-      </button>
-      
-   )
+  return (
+    <button
+      className="pagination__button button"
+      onClick={() => clickAddHandler(count)}
+    >
+      {count}
+    </button>
+  );
 }
 
-export default PaginationButton
+export default PaginationButton;

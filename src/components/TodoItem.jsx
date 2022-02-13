@@ -2,8 +2,7 @@ import React from "react";
 import { deleteTodos, completeTodo, updateTodo } from "../redux/actions/todos";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import ReactLogo from '../assets/Dragon-Logo.svg';
-
+import ReactLogo from "../assets/Dragon-Logo.svg";
 
 const TodoItem = ({ completed, id, title, userId }) => {
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ const TodoItem = ({ completed, id, title, userId }) => {
         <button onClick={() => clickEditkHandler()}>
           {!editable ? "Edit" : "Update"}
         </button>
-        <img className='todo-item__logo' src={ReactLogo} alt="React Logo" />
+        <img className="todo-item__logo" src={ReactLogo} alt="React Logo" />
       </div>
     </>
   );

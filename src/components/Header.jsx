@@ -3,9 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useLocation, useParams } from "react-router-dom";
 
-
 const Header = () => {
-  
   const location = useLocation();
 
   return location.pathname === "/todos" ? (

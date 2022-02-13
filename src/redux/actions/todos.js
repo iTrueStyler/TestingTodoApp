@@ -2,9 +2,11 @@ import axios from "axios";
 const BASE_URL = "https://jsonplaceholder.typicode.com/todos";
 
 export const fetchTodos = (page) => (dispatch) => {
-  axios.get(`${BASE_URL}?_limit=4&_${page !== null?`page=${page}`:''}`).then(({ data }) => {
-    dispatch(setTodos(data));
-  });
+  axios
+    .get(`${BASE_URL}?_limit=4&_${page !== null ? `page=${page}` : ""}`)
+    .then(({ data }) => {
+      dispatch(setTodos(data));
+    });
 };
 
 export const setTodos = (items) => ({
@@ -37,7 +39,6 @@ export const updateTodo = (value, id) => ({
 });
 
 export const addTodo = (obj) => ({
-  
   type: "ADD_TODO",
   payload: obj,
 });
